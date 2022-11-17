@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+void Shifruvanna(char S[128], unsigned short Rez[128])
+{
+    unsigned char c;
+    unsigned short r, t, i, b;
+    short j;
+    cin.get(S, 128);
+    for (i = 0;i<128;i++)
+    {
+        r = 0; 
+        c = S[i];
+        t = c;
+        r |= t >> 4;
+        r |= i << 4; 
+        t = c;
+        r |= t << 11; 
+        t = 1;
+        b = 0;
+        for (j = 0;j<16;j++)
+        {
+            if (r&t) 
+            {
+                if (b==0) b = 1; 
+                else b = 0;
+            }
+            t <<= 1;
+        }
+        r |= b << 15;
+        Rez[i] = r;
+    }
+}
+int main()
+{
+    char S[128];
+    unsigned short Rez[128];
+    unsigned short i;
+    cin.get(S, 128);
+    Shifruvanna(S, Rez);
+    for (i = 0;i<128;i++)
+    cout << hex << Rez[i] << " ";
+    return 0;
+}

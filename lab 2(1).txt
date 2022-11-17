@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a, b, d, c, x, y;
+    cout << "Input a and b d c ";
+    cin >> a >> b >> d >> c;
+    x = ((((b<<2)+b + (b << 5)) + ((((d << 5)-d) + ((a << 4)-(a<<2))) >> 11)) - (c + (c << 6))) + ((d << 4)-(d<<1));
+    y = 37 * b + ((d * 31 + 12 * a) / 2048) - 65 * c + d * 14;
+    cout << "  x=" << x << "  y=" << y<< endl;
+    return 0;
+}
